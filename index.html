@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>критфактор — независимый аудит операций для пиццерий и кофеен</title>
+  <meta name="description" content="Внешний онлайн-аудит операционных процессов для партнёров Додо Пиццы, Дринкит и сетей HoReCa. Выявляем нарушения раньше, чем их заметит управляющая компания.">
+  <meta name="theme-color" content="#f6f2ea">
+  <meta property="og:title" content="критфактор — независимый контроль операций">
+  <meta property="og:description" content="Онлайн-аудит смен по камерам: пищевой безопасности, качеству продукта, сервису и чистоте. Отчёты с тайм-кодами, дашборды, постоплата.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://critfaktor.ru/">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "критфактор",
+    "url": "https://critfaktor.ru/",
+    "logo": "https://critfaktor.ru/logo.svg",
+    "description": "Внешний онлайн-аудит операционных процессов для партнёров Додо Пиццы, Дринкит и любых сетей HoReCa.",
+    "foundingDate": "2023",
+    "email": "hello@critfaktor.com",
+    "sameAs": ["https://t.me/dima_critfaktor"]
+  }
+  </script>
+</head>
+<body>
+
+<main id="top">
+
+  <!-- Герой: панель на весь экран, бегущая лента ключевых обещаний -->
+  <section class="hero">
+    <header class="site-header">
+      <div class="container header__row">
+        <div class="header__group">
+          <a class="header__brand" href="#top" aria-label="критфактор — на главную">
+            <img src="assets/logo-light.svg" alt="критфактор" width="132" height="21">
+          </a>
+          <nav class="header__nav" aria-label="Разделы">
+            <a href="#how">Подход</a>
+            <a href="#zones">Что проверяем</a>
+            <a href="#tariffs">Тарифы</a>
+            <a href="#team">Команда</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">
+          <svg class="btn__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.9 4.6c.3-1.3-.9-2.3-2.1-1.9L2.7 9.7c-1.4.5-1.3 2.5.1 2.9l4.6 1.4 1.7 5.5c.4 1.2 1.9 1.6 2.8.7l2.5-2.3 4.7 3.5c1 .8 2.5.2 2.8-1.1l2-15.7Zm-4 3.7-7.4 6.7c-.3.3-.5.7-.5 1.1l-.3 3-1.3-4.1c-.1-.4 0-.8.4-1l9.1-5.7Z"/></svg>
+          Связаться
+        </a>
+        <button class="header__menu" type="button" aria-expanded="false" aria-controls="menu-sheet">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z"/></svg>
+          <span class="header__menu-label">Меню</span>
+        </button>
+      </div>
+      <div class="container menu-sheet" id="menu-sheet" hidden>
+        <a href="#how">Подход</a>
+        <a href="#zones">Что проверяем</a>
+        <a href="#tariffs">Тарифы</a>
+        <a href="#team">Команда</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://t.me/dima_critfaktor">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.9 4.6c.3-1.3-.9-2.3-2.1-1.9L2.7 9.7c-1.4.5-1.3 2.5.1 2.9l4.6 1.4 1.7 5.5c.4 1.2 1.9 1.6 2.8.7l2.5-2.3 4.7 3.5c1 .8 2.5.2 2.8-1.1l2-15.7Zm-4 3.7-7.4 6.7c-.3.3-.5.7-.5 1.1l-.3 3-1.3-4.1c-.1-.4 0-.8.4-1l9.1-5.7Z"/></svg>
+          Telegram — @dima_critfaktor
+        </a>
+      </div>
+    </header>
+
+    <div class="container hero__inner">
+      <h1>Выявляем нарушения раньше, чем их заметит УК</h1>
+      <p class="hero__lead">Внешний онлайн-аудит операционных процессов для партнёров Додо Пиццы, Дринкит и сетей HoReCa. Реальная картина того, что происходит на сменах.</p>
+      <div class="hero__actions">
+        <a class="btn" href="#tariffs">Смотреть тарифы</a>
+        <a class="btn btn--ghost" href="https://t.me/dima_critfaktor">
+          <svg class="btn__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.9 4.6c.3-1.3-.9-2.3-2.1-1.9L2.7 9.7c-1.4.5-1.3 2.5.1 2.9l4.6 1.4 1.7 5.5c.4 1.2 1.9 1.6 2.8.7l2.5-2.3 4.7 3.5c1 .8 2.5.2 2.8-1.1l2-15.7Zm-4 3.7-7.4 6.7c-.3.3-.5.7-.5 1.1l-.3 3-1.3-4.1c-.1-.4 0-.8.4-1l9.1-5.7Z"/></svg>
+          Связаться в Telegram
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__ticker" aria-label="Ключевые направления проверок">
+      <div class="container ticker__wrap">
+        <span class="ticker__tag">На контроле:</span>
+        <div class="ticker__viewport">
+          <div class="ticker__track">
+            <div class="ticker__group">
+              <span class="ticker__item">Дашборды и аналитика</span>
+              <span class="ticker__item">Фокус на пищевой безопасности</span>
+              <span class="ticker__item">Строго по стандартам Додо</span>
+              <span class="ticker__item">Качество продукта</span>
+            </div>
+            <div class="ticker__group" aria-hidden="true">
+              <span class="ticker__item">Дашборды и аналитика</span>
+              <span class="ticker__item">Фокус на пищевой безопасности</span>
+              <span class="ticker__item">Строго по стандартам Додо</span>
+              <span class="ticker__item">Качество продукта</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Статистика: широкая панель-полоса со счётчиками -->
+  <section class="stats container" id="stats" aria-labelledby="stats-title">
+    <h2 class="section-title" id="stats-title">критфактор в цифрах</h2>
+    <div class="stats-panel reveal">
+      <div class="stats__grid">
+        <article class="stat">
+          <span class="stat__num" data-count="3">3</span>
+          <h3 class="stat__title">года на рынке</h3>
+          <p class="stat__note">независимый контроль с 2023 года</p>
+        </article>
+        <article class="stat">
+          <span class="stat__num" data-count="11">11</span>
+          <h3 class="stat__title">партнёров</h3>
+          <p class="stat__note">Додо Пицца, Дринкит и другие сети</p>
+        </article>
+        <article class="stat">
+          <span class="stat__num" data-count="90">90</span>
+          <h3 class="stat__title">пиццерий на контроле</h3>
+          <p class="stat__note">плюс кофейни и другие объекты</p>
+        </article>
+        <article class="stat">
+          <span class="stat__num" data-count="20000" data-suffix="+">20 000+</span>
+          <h3 class="stat__title">проверок проведено</h3>
+          <p class="stat__note">отчёты с тайм-кодами и видео</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подход: тёмная панель с этапами, как таймлайн -->
+  <section class="how container" id="how" aria-labelledby="how-title">
+    <div class="path-panel grain">
+      <h2 class="section-title" id="how-title">Четыре шага от&nbsp;заявки до&nbsp;результата</h2>
+      <div class="timeline">
+        <button class="chip is-active" type="button" data-stage="stage-1" aria-controls="stage-1" aria-pressed="true">Подключение и тест</button>
+        <button class="chip" type="button" data-stage="stage-2" aria-controls="stage-2" aria-pressed="false">Договор и Додо ИС</button>
+        <button class="chip" type="button" data-stage="stage-3" aria-controls="stage-3" aria-pressed="false">Отчёты и оплата</button>
+        <button class="chip" type="button" data-stage="stage-4" aria-controls="stage-4" aria-pressed="false">Итоговая встреча</button>
+      </div>
+      <div class="stages">
+        <div class="stage" id="stage-1">
+          <p class="stage__num">Шаг 1 из 4</p>
+          <h3>Подключение и тест</h3>
+          <p>Получаем доступы к камерам (DMSS, RedLine, сайт dodopizza.ru), проводим тестовую проверку и согласовываем тариф с партнером.</p>
+        </div>
+        <div class="stage" id="stage-2" hidden>
+          <p class="stage__num">Шаг 2 из 4</p>
+          <h3>Договор и Додо ИС</h3>
+          <p>Подключаемся к Додо ИС партнера, подписываем договор оказания услуг и приступаем к проведению проверок.</p>
+        </div>
+        <div class="stage" id="stage-3" hidden>
+          <p class="stage__num">Шаг 3 из 4</p>
+          <h3>Отчёты и оплата</h3>
+          <p>Отчёт формируется в CRM, а результаты проверок отправляются в мессенджер. Постоплата: выставляем счёт за прошедший месяц.</p>
+        </div>
+        <div class="stage" id="stage-4" hidden>
+          <p class="stage__num">Шаг 4 из 4</p>
+          <h3>Итоговая встреча</h3>
+          <p>Ежемесячно ставим цели управляющим пиццерий и помогаем их достигать, улучшая результаты.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Что проверяем: пять зон риска -->
+  <section class="zones container" id="zones" aria-labelledby="zones-title">
+    <h2 class="section-title" id="zones-title">Пять зон операционного риска</h2>
+    <p class="section-lead">Наша основная цель — безопасный продукт для гостя и снижение рисков по рейтингам от УК. Каждая проверка — это отчёт с&nbsp;тайм-кодами, скриншотами и&nbsp;видео.</p>
+    <div class="zones__grid">
+      <article class="zone reveal">
+        <span class="zone__num">01</span>
+        <h3>Пищевая безопасность</h3>
+        <p>Перекрестное загрязнение, перемаркировка, продление срока годности, экстренная разморозка, качество мытья рук и уборки в зеленой зоне.</p>
+      </article>
+      <article class="zone reveal">
+        <span class="zone__num">02</span>
+        <h3>Качество продукта</h3>
+        <p>Соблюдение рецептов и порядка начинения, использование стаканов, качество теста и бортиков, равномерность нанесения — на всех этапах от раскатки до упаковки.</p>
+      </article>
+      <article class="zone reveal">
+        <span class="zone__num">03</span>
+        <h3>Сервис и касса</h3>
+        <p>Скорость реакции на гостя, сборка и выдача, качество приготовления напитков, витрина.</p>
+      </article>
+      <article class="zone reveal zone--wide">
+        <span class="zone__num">04</span>
+        <h3>Чистота</h3>
+        <p>Качество уборки во всех зонах, состояние инвентаря и химии.</p>
+      </article>
+      <article class="zone reveal zone--wide">
+        <span class="zone__num">05</span>
+        <h3>Производственная эффективность</h3>
+        <p>Обходы менеджера, соблюдение принципа конвейера.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Тарифы: фильтр по брендам, переключатель планов -->
+  <section class="tariffs container" id="tariffs" aria-labelledby="tariffs-title">
+    <h2 class="section-title" id="tariffs-title">Выберите свой формат подписки</h2>
+    <div class="catalog-filters" role="group" aria-label="Фильтр тарифов по брендам">
+      <button class="filter-btn is-active" type="button" data-brand="all" aria-pressed="true">Все тарифы</button>
+      <button class="filter-btn" type="button" data-brand="dodo" aria-pressed="false">Додо Пицца</button>
+      <button class="filter-btn" type="button" data-brand="drinkit" aria-pressed="false">Дринкит</button>
+      <button class="filter-btn" type="button" data-brand="any" aria-pressed="false">Любой бизнес</button>
+    </div>
+    <div class="tariff-grid">
+
+      <article class="tariff reveal tariff--popular" data-brand="dodo" data-tariff="dodo-full">
+        <div class="tariff__badges"><span class="badge badge--accent">Популярный</span></div>
+        <h3 class="tariff__name">Вся пиццерия</h3>
+        <p class="tariff__desc">Комплексный контроль по всем камерам пиццерии.</p>
+        <ul class="tariff__features">
+          <li>Работаем с DMSS, RedLine и др.</li>
+          <li>Все камеры в пиццерии</li>
+          <li>Доступ к дашбордам и аналитике</li>
+          <li>Встреча с управляющими пиццерий</li>
+        </ul>
+        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-full" value="8" checked><span>8 проверок / мес</span></label>
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-full" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+        </div>
+        <p class="tariff__price">
+          <span class="tariff__price-value" id="price-dodo-full">15 000</span><span class="tariff__price-currency">₽</span>
+        </p>
+        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="dodo" data-tariff="dodo-gc">
+        <h3 class="tariff__name tariff__name--flush">Камера ГЦ</h3>
+        <p class="tariff__desc">Сфокусированный контроль камеры горячего цеха.</p>
+        <ul class="tariff__features">
+          <li>Запись с публичной камеры dodopizza.ru</li>
+          <li>Доступ к дашбордам и аналитике</li>
+          <li>Встреча с управляющими пиццерий</li>
+        </ul>
+        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-gc" value="8" checked><span>8 проверок / мес</span></label>
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-gc" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+        </div>
+        <p class="tariff__price">
+          <span class="tariff__price-value" id="price-dodo-gc">8 500</span><span class="tariff__price-currency">₽</span>
+        </p>
+        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+      </article>
+
+      <article class="tariff reveal tariff--popular" data-brand="drinkit" data-tariff="drinkit-full">
+        <div class="tariff__badges"><span class="badge badge--accent">Популярный</span></div>
+        <h3 class="tariff__name">Вся кофейня</h3>
+        <p class="tariff__desc">Комплексный контроль всех зон кофейни.</p>
+        <ul class="tariff__features">
+          <li>Работаем с DMSS, RedLine и др.</li>
+          <li>Все камеры в кофейне</li>
+          <li>Доступ к дашбордам и аналитике</li>
+          <li>Встреча с управляющими кофеен</li>
+        </ul>
+        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-full" value="8" checked><span>8 проверок / мес</span></label>
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-full" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+        </div>
+        <p class="tariff__price">
+          <span class="tariff__price-value" id="price-drinkit-full">12 000</span><span class="tariff__price-currency">₽</span>
+        </p>
+        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="drinkit" data-tariff="drinkit-gc">
+        <h3 class="tariff__name tariff__name--flush">Камера Бара</h3>
+        <p class="tariff__desc">Сфокусированный контроль зоны напитков.</p>
+        <ul class="tariff__features">
+          <li>Запись с основной камеры</li>
+          <li>Личный кабинет в CRM</li>
+          <li>Доступ к дашбордам и аналитике</li>
+          <li>Встреча с управляющими кофеен</li>
+        </ul>
+        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-gc" value="8" checked><span>8 проверок / мес</span></label>
+          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-gc" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+        </div>
+        <p class="tariff__price">
+          <span class="tariff__price-value" id="price-drinkit-gc">7 500</span><span class="tariff__price-currency">₽</span>
+        </p>
+        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="dodo" data-tariff="dodo-rs">
+        <div class="tariff__badges"><span class="badge badge--tint">Спецпредложение</span></div>
+        <h3 class="tariff__name">Рейтинг Стандартов</h3>
+        <p class="tariff__desc">Локальная проверка: узнайте результат раньше, чем придет инспектор УК.</p>
+        <ul class="tariff__features">
+          <li>Проверка по видеозвонку с менеджером</li>
+          <li>Расширенный чек-лист РС от УК</li>
+          <li>Наш лучший эксперт с опытом 10+ лет в Додо</li>
+          <li>Покажем точки роста по РС</li>
+        </ul>
+        <p class="tariff__price"><span class="tariff__price-value">3 900</span><span class="tariff__price-currency">₽</span></p>
+        <p class="tariff__unit">1 проверка · разовая услуга</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Заказать</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="any">
+        <h3 class="tariff__name tariff__name--flush">Пилотный проект</h3>
+        <p class="tariff__desc">Оценка нашей эффективности на ваших объектах.</p>
+        <ul class="tariff__features">
+          <li>Разработка чек-листа</li>
+          <li>2 тестовые проверки</li>
+          <li>Расчет стоимости</li>
+        </ul>
+        <p class="tariff__price tariff__price--custom">Тестовая проверка</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Начать пилот</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="any">
+        <h3 class="tariff__name tariff__name--flush">Сфера услуг</h3>
+        <p class="tariff__desc">Салоны, барбершопы и ритейл.</p>
+        <ul class="tariff__features">
+          <li>Адаптация под стандарты</li>
+          <li>Работаем с любыми системами</li>
+          <li>Доступ к дашбордам и аналитике</li>
+        </ul>
+        <p class="tariff__price tariff__price--custom">Индивидуальный расчёт</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Обсудить</a>
+      </article>
+
+      <article class="tariff reveal" data-brand="any">
+        <h3 class="tariff__name tariff__name--flush">HoReCa</h3>
+        <p class="tariff__desc">Комплексный контроль ресторанов и кафе.</p>
+        <ul class="tariff__features">
+          <li>Пищевая безопасность, скорость</li>
+          <li>Работаем с любыми системами</li>
+          <li>Доступ к дашбордам и аналитике</li>
+        </ul>
+        <p class="tariff__price tariff__price--custom">Индивидуальный расчёт</p>
+        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Обсудить</a>
+      </article>
+
+    </div>
+
+    <aside class="second-opinion grain reveal">
+      <div class="second-opinion__body">
+        <h3>Уже есть штатный контроль качества?</h3>
+        <p>Закажите услугу «Второе мнение». Мы проведём независимый выборочный срез, оценим работу точек свежим взглядом и подсветим слепые зоны, к&nbsp;которым могла привыкнуть внутренняя команда. Только объективные данные для собственника.</p>
+      </div>
+      <a class="btn" href="https://t.me/dima_critfaktor">Оставить заявку</a>
+    </aside>
+  </section>
+
+  <!-- Команда -->
+  <section class="team container" id="team" aria-labelledby="team-title">
+    <h2 class="section-title" id="team-title">Люди, которые видят всё</h2>
+    <div class="team__grid">
+      <article class="person reveal">
+        <img src="assets/images/team/dmitry_ulybin.png" alt="Дмитрий Улыбин" width="300" height="300" loading="lazy">
+        <h3>Дмитрий Улыбин</h3>
+        <p class="person__exp">7 лет с Додо</p>
+      </article>
+      <article class="person reveal">
+        <img src="assets/images/team/victoria_martirosyan.png" alt="Виктория Мартиросян" width="300" height="300" loading="lazy">
+        <h3>Виктория Мартиросян</h3>
+        <p class="person__exp">9 лет с Додо</p>
+      </article>
+      <article class="person reveal">
+        <img src="assets/images/team/albina_borodavkina.jpg" alt="Альбина Бородавкина" width="300" height="375" loading="lazy">
+        <h3>Альбина Бородавкина</h3>
+        <p class="person__exp">10 лет с Додо</p>
+      </article>
+      <article class="person reveal">
+        <img src="assets/images/team/said_ganiev.jpg" alt="Саид Ганиев" width="300" height="375" loading="lazy">
+        <h3>Саид Ганиев</h3>
+        <p class="person__exp">5 лет с Додо</p>
+      </article>
+    </div>
+    <div class="team-note reveal">
+      <p><strong>10+ экспертов по всей России</strong> — от Калининграда до Хабаровска. У&nbsp;каждого — многолетний опыт работы с&nbsp;операционными процессами.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq container" id="faq" aria-labelledby="faq-title">
+    <h2 class="section-title" id="faq-title">Часто задаваемые вопросы</h2>
+    <p class="section-lead">Если не нашли ответ — напишите в&nbsp;Telegram, ответим в&nbsp;течение рабочего дня.</p>
+    <div class="faq-sheet">
+      <details class="faq-card reveal" open>
+        <summary>Сколько времени занимает запуск?</summary>
+        <p class="faq-a">Мы можем провести тестовую проверку уже на следующий день после заявки. Запуск регулярных проверок — с ближайшего понедельника.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Как вы получаете доступ к камерам?</summary>
+        <p class="faq-a">Мы используем стандартные доступы (DMSS, RedLine или публичные камеры на сайте). Работаем с любыми приложениями.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Смотрят живые люди или ИИ?</summary>
+        <p class="faq-a">Наши проверки проводятся только вручную живыми экспертами. Мы регулярно проводим ротацию экспертов между объектами, чтобы взгляд оставался свежим и объективным.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Как вы проверяете стандарты?</summary>
+        <p class="faq-a">Мы требовательны и к себе, и к коллегам. Проверяем строго по стандартам УК. Если появляются спорные вопросы — ищем ответы у сотрудников УК вместе с вами.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Как быстро публикуются отчёты?</summary>
+        <p class="faq-a">Утренние и дневные смены публикуем день в день. Если проверка вечерняя или на закрытие — публикация утром следующего дня.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>В каком мессенджере публикуете результаты?</summary>
+        <p class="faq-a">В Telegram или ВКонтакте.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Если эксперт ошибся?</summary>
+        <p class="faq-a">У нас есть система апелляций: мы детально рассмотрим ваш тикет и вернем баллы при необходимости. Также мы обязательно дадим обратную связь эксперту, чтобы не допускать подобного в будущем.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Это не конфликтует с проверками УК?</summary>
+        <p class="faq-a">Нет. Наоборот, мы выявляем системные ошибки до того, как придет проверка УК, помогая вам сохранить высокий рейтинг.</p>
+      </details>
+      <details class="faq-card reveal">
+        <summary>Это конфиденциально?</summary>
+        <p class="faq-a">Да, мы не разглашаем результаты аудитов для УК или третьих лиц.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Финальный призыв -->
+  <section class="cta container" aria-label="Начните с пробной проверки">
+    <div class="cta-panel grain reveal">
+      <h2>Узнайте, что на&nbsp;самом деле происходит в&nbsp;ваших ресторанах</h2>
+      <p>Получите реальный отчёт и решите, нужно ли вам это.</p>
+      <div class="cta-actions">
+        <a class="btn" href="https://t.me/dima_critfaktor">Оставить заявку</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img src="assets/logo.svg" alt="критфактор" width="132" height="21">
+      <p>Независимый контроль операционных процессов для пиццерий, кофеен и сетей HoReCa.</p>
+    </div>
+    <nav class="footer__col" aria-label="Разделы">
+      <h4>Навигация</h4>
+      <a href="#how">Подход</a>
+      <a href="#zones">Что проверяем</a>
+      <a href="#tariffs">Тарифы</a>
+      <a href="#team">Команда</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="footer__col">
+      <h4>Бренды</h4>
+      <p>Додо Пицца</p>
+      <p>Дринкит</p>
+      <p>Любой бизнес</p>
+    </div>
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <a href="https://t.me/dima_critfaktor">Telegram →</a>
+      <a href="mailto:hello@critfaktor.com">hello@critfaktor.com</a>
+    </div>
+  </div>
+  <div class="container footer__legal">
+    <p>© 2023–2026 критфактор. Не является публичной офертой.</p>
+    <a href="#top">Наверх</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
