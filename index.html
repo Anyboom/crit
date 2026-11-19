@@ -206,144 +206,98 @@
   <!-- Тарифы: фильтр по брендам, переключатель планов -->
   <section class="tariffs container" id="tariffs" aria-labelledby="tariffs-title">
     <h2 class="section-title" id="tariffs-title">Выберите свой формат подписки</h2>
-    <div class="catalog-filters" role="group" aria-label="Фильтр тарифов по брендам">
-      <button class="filter-btn is-active" type="button" data-brand="all" aria-pressed="true">Все тарифы</button>
-      <button class="filter-btn" type="button" data-brand="dodo" aria-pressed="false">Додо Пицца</button>
-      <button class="filter-btn" type="button" data-brand="drinkit" aria-pressed="false">Дринкит</button>
-      <button class="filter-btn" type="button" data-brand="any" aria-pressed="false">Любой бизнес</button>
+    <div class="tariffs__controls">
+      <div class="catalog-filters" role="group" aria-label="Фильтр тарифов по брендам">
+        <button class="filter-btn is-active" type="button" data-brand="all" aria-pressed="true">Все тарифы</button>
+        <button class="filter-btn" type="button" data-brand="dodo" aria-pressed="false">Додо Пицца</button>
+        <button class="filter-btn" type="button" data-brand="drinkit" aria-pressed="false">Дринкит</button>
+        <button class="filter-btn" type="button" data-brand="any" aria-pressed="false">Любой бизнес</button>
+      </div>
+      <div class="plan-switch" role="radiogroup" aria-label="План проверок">
+        <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-global" value="8" checked><span>8 проверок / мес</span></label>
+        <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-global" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+      </div>
     </div>
-    <div class="tariff-grid">
+    <div class="tariff-table">
 
-      <article class="tariff reveal tariff--popular" data-brand="dodo" data-tariff="dodo-full">
-        <div class="tariff__badges"><span class="badge badge--accent">Популярный</span></div>
-        <h3 class="tariff__name">Вся пиццерия</h3>
-        <p class="tariff__desc">Комплексный контроль по всем камерам пиццерии.</p>
-        <ul class="tariff__features">
-          <li>Работаем с DMSS, RedLine и др.</li>
-          <li>Все камеры в пиццерии</li>
-          <li>Доступ к дашбордам и аналитике</li>
-          <li>Встреча с управляющими пиццерий</li>
-        </ul>
-        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-full" value="8" checked><span>8 проверок / мес</span></label>
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-full" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+      <article class="tariff-row reveal" data-brand="dodo" data-tariff="dodo-full">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Вся пиццерия <span class="badge badge--accent">Популярный</span></h3>
+          <p class="tariff-row__desc">Комплексный контроль по всем камерам пиццерии.</p>
         </div>
-        <p class="tariff__price">
-          <span class="tariff__price-value" id="price-dodo-full">15 000</span><span class="tariff__price-currency">₽</span>
-        </p>
-        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+        <p class="tariff-row__features">DMSS, RedLine и&nbsp;др.&nbsp;·&nbsp;все камеры в&nbsp;пиццерии&nbsp;·&nbsp;дашборды и&nbsp;аналитика&nbsp;·&nbsp;встречи с&nbsp;управляющими</p>
+        <p class="tariff-row__price"><span class="tariff-row__sum"><span class="tariff-row__value">15 000</span><span class="tariff-row__currency">₽</span></span><span class="tariff-row__unit">в месяц&nbsp;·&nbsp;постоплата&nbsp;·&nbsp;за 1 объект</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Выбрать</a>
       </article>
 
-      <article class="tariff reveal" data-brand="dodo" data-tariff="dodo-gc">
-        <h3 class="tariff__name tariff__name--flush">Камера ГЦ</h3>
-        <p class="tariff__desc">Сфокусированный контроль камеры горячего цеха.</p>
-        <ul class="tariff__features">
-          <li>Запись с публичной камеры dodopizza.ru</li>
-          <li>Доступ к дашбордам и аналитике</li>
-          <li>Встреча с управляющими пиццерий</li>
-        </ul>
-        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-gc" value="8" checked><span>8 проверок / мес</span></label>
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-dodo-gc" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+      <article class="tariff-row reveal" data-brand="dodo" data-tariff="dodo-gc">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Камера ГЦ</h3>
+          <p class="tariff-row__desc">Сфокусированный контроль камеры горячего цеха.</p>
         </div>
-        <p class="tariff__price">
-          <span class="tariff__price-value" id="price-dodo-gc">8 500</span><span class="tariff__price-currency">₽</span>
-        </p>
-        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+        <p class="tariff-row__features">публичная камера dodopizza.ru&nbsp;·&nbsp;дашборды и&nbsp;аналитика&nbsp;·&nbsp;встречи с&nbsp;управляющими</p>
+        <p class="tariff-row__price"><span class="tariff-row__sum"><span class="tariff-row__value">8 500</span><span class="tariff-row__currency">₽</span></span><span class="tariff-row__unit">в месяц&nbsp;·&nbsp;постоплата&nbsp;·&nbsp;за 1 объект</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Выбрать</a>
       </article>
 
-      <article class="tariff reveal tariff--popular" data-brand="drinkit" data-tariff="drinkit-full">
-        <div class="tariff__badges"><span class="badge badge--accent">Популярный</span></div>
-        <h3 class="tariff__name">Вся кофейня</h3>
-        <p class="tariff__desc">Комплексный контроль всех зон кофейни.</p>
-        <ul class="tariff__features">
-          <li>Работаем с DMSS, RedLine и др.</li>
-          <li>Все камеры в кофейне</li>
-          <li>Доступ к дашбордам и аналитике</li>
-          <li>Встреча с управляющими кофеен</li>
-        </ul>
-        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-full" value="8" checked><span>8 проверок / мес</span></label>
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-full" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+      <article class="tariff-row reveal" data-brand="drinkit" data-tariff="drinkit-full">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Вся кофейня <span class="badge badge--accent">Популярный</span></h3>
+          <p class="tariff-row__desc">Комплексный контроль всех зон кофейни.</p>
         </div>
-        <p class="tariff__price">
-          <span class="tariff__price-value" id="price-drinkit-full">12 000</span><span class="tariff__price-currency">₽</span>
-        </p>
-        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+        <p class="tariff-row__features">DMSS, RedLine и&nbsp;др.&nbsp;·&nbsp;все камеры в&nbsp;кофейне&nbsp;·&nbsp;дашборды и&nbsp;аналитика&nbsp;·&nbsp;встречи с&nbsp;управляющими</p>
+        <p class="tariff-row__price"><span class="tariff-row__sum"><span class="tariff-row__value">12 000</span><span class="tariff-row__currency">₽</span></span><span class="tariff-row__unit">в месяц&nbsp;·&nbsp;постоплата&nbsp;·&nbsp;за 1 объект</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Выбрать</a>
       </article>
 
-      <article class="tariff reveal" data-brand="drinkit" data-tariff="drinkit-gc">
-        <h3 class="tariff__name tariff__name--flush">Камера Бара</h3>
-        <p class="tariff__desc">Сфокусированный контроль зоны напитков.</p>
-        <ul class="tariff__features">
-          <li>Запись с основной камеры</li>
-          <li>Личный кабинет в CRM</li>
-          <li>Доступ к дашбордам и аналитике</li>
-          <li>Встреча с управляющими кофеен</li>
-        </ul>
-        <div class="tariff__plan" role="radiogroup" aria-label="План проверок">
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-gc" value="8" checked><span>8 проверок / мес</span></label>
-          <label class="plan-pill"><input class="plan-pill__input" type="radio" name="plan-drinkit-gc" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+      <article class="tariff-row reveal" data-brand="drinkit" data-tariff="drinkit-gc">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Камера Бара</h3>
+          <p class="tariff-row__desc">Сфокусированный контроль зоны напитков.</p>
         </div>
-        <p class="tariff__price">
-          <span class="tariff__price-value" id="price-drinkit-gc">7 500</span><span class="tariff__price-currency">₽</span>
-        </p>
-        <p class="tariff__unit">в месяц · постоплата · за 1 объект</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Выбрать тариф</a>
+        <p class="tariff-row__features">основная камера&nbsp;·&nbsp;личный кабинет в&nbsp;CRM&nbsp;·&nbsp;дашборды и&nbsp;аналитика&nbsp;·&nbsp;встречи с&nbsp;управляющими</p>
+        <p class="tariff-row__price"><span class="tariff-row__sum"><span class="tariff-row__value">7 500</span><span class="tariff-row__currency">₽</span></span><span class="tariff-row__unit">в месяц&nbsp;·&nbsp;постоплата&nbsp;·&nbsp;за 1 объект</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Выбрать</a>
       </article>
 
-      <article class="tariff reveal" data-brand="dodo" data-tariff="dodo-rs">
-        <div class="tariff__badges"><span class="badge badge--tint">Спецпредложение</span></div>
-        <h3 class="tariff__name">Рейтинг Стандартов</h3>
-        <p class="tariff__desc">Локальная проверка: узнайте результат раньше, чем придет инспектор УК.</p>
-        <ul class="tariff__features">
-          <li>Проверка по видеозвонку с менеджером</li>
-          <li>Расширенный чек-лист РС от УК</li>
-          <li>Наш лучший эксперт с опытом 10+ лет в Додо</li>
-          <li>Покажем точки роста по РС</li>
-        </ul>
-        <p class="tariff__price"><span class="tariff__price-value">3 900</span><span class="tariff__price-currency">₽</span></p>
-        <p class="tariff__unit">1 проверка · разовая услуга</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Заказать</a>
+      <article class="tariff-row reveal" data-brand="dodo" data-tariff="dodo-rs">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Рейтинг Стандартов <span class="badge badge--tint">Спецпредложение</span></h3>
+          <p class="tariff-row__desc">Локальная проверка: результат раньше, чем придет инспектор УК.</p>
+        </div>
+        <p class="tariff-row__features">видеозвонок с&nbsp;менеджером&nbsp;·&nbsp;расширенный чек-лист РС от&nbsp;УК&nbsp;·&nbsp;эксперт с&nbsp;опытом 10+ лет в&nbsp;Додо&nbsp;·&nbsp;точки роста по&nbsp;РС</p>
+        <p class="tariff-row__price"><span class="tariff-row__sum"><span class="tariff-row__value">3 900</span><span class="tariff-row__currency">₽</span></span><span class="tariff-row__unit">1 проверка&nbsp;·&nbsp;разовая услуга</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Заказать</a>
       </article>
 
-      <article class="tariff reveal" data-brand="any">
-        <h3 class="tariff__name tariff__name--flush">Пилотный проект</h3>
-        <p class="tariff__desc">Оценка нашей эффективности на ваших объектах.</p>
-        <ul class="tariff__features">
-          <li>Разработка чек-листа</li>
-          <li>2 тестовые проверки</li>
-          <li>Расчет стоимости</li>
-        </ul>
-        <p class="tariff__price tariff__price--custom">Тестовая проверка</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Начать пилот</a>
+      <article class="tariff-row reveal" data-brand="any">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Пилотный проект</h3>
+          <p class="tariff-row__desc">Оценка нашей эффективности на ваших объектах.</p>
+        </div>
+        <p class="tariff-row__features">разработка чек-листа&nbsp;·&nbsp;2 тестовые проверки&nbsp;·&nbsp;расчёт стоимости</p>
+        <p class="tariff-row__price"><span class="tariff-row__value tariff-row__value--custom">Тестовая проверка</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Начать пилот</a>
       </article>
 
-      <article class="tariff reveal" data-brand="any">
-        <h3 class="tariff__name tariff__name--flush">Сфера услуг</h3>
-        <p class="tariff__desc">Салоны, барбершопы и ритейл.</p>
-        <ul class="tariff__features">
-          <li>Адаптация под стандарты</li>
-          <li>Работаем с любыми системами</li>
-          <li>Доступ к дашбордам и аналитике</li>
-        </ul>
-        <p class="tariff__price tariff__price--custom">Индивидуальный расчёт</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Обсудить</a>
+      <article class="tariff-row reveal" data-brand="any">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">Сфера услуг</h3>
+          <p class="tariff-row__desc">Салоны, барбершопы и ритейл.</p>
+        </div>
+        <p class="tariff-row__features">адаптация под стандарты&nbsp;·&nbsp;любые системы&nbsp;·&nbsp;дашборды и&nbsp;аналитика</p>
+        <p class="tariff-row__price"><span class="tariff-row__value tariff-row__value--custom">Индивидуальный расчёт</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Обсудить</a>
       </article>
 
-      <article class="tariff reveal" data-brand="any">
-        <h3 class="tariff__name tariff__name--flush">HoReCa</h3>
-        <p class="tariff__desc">Комплексный контроль ресторанов и кафе.</p>
-        <ul class="tariff__features">
-          <li>Пищевая безопасность, скорость</li>
-          <li>Работаем с любыми системами</li>
-          <li>Доступ к дашбордам и аналитике</li>
-        </ul>
-        <p class="tariff__price tariff__price--custom">Индивидуальный расчёт</p>
-        <a class="btn btn--wide" href="https://t.me/dima_critfaktor">Обсудить</a>
+      <article class="tariff-row reveal" data-brand="any">
+        <div class="tariff-row__head">
+          <h3 class="tariff-row__name">HoReCa</h3>
+          <p class="tariff-row__desc">Комплексный контроль ресторанов и кафе.</p>
+        </div>
+        <p class="tariff-row__features">пищевая безопасность и&nbsp;скорость&nbsp;·&nbsp;любые системы&nbsp;·&nbsp;дашборды и&nbsp;аналитика</p>
+        <p class="tariff-row__price"><span class="tariff-row__value tariff-row__value--custom">Индивидуальный расчёт</span></p>
+        <a class="btn btn--sm" href="https://t.me/dima_critfaktor">Обсудить</a>
       </article>
 
     </div>

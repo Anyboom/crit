@@ -297,7 +297,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 
 /* ===== tariffs ===== */
 .catalog-filters {
-  margin-top: var(--heading-gap);
   display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
 .filter-btn {
@@ -311,23 +310,37 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .filter-btn:hover { color: var(--ink); }
 .filter-btn.is-active { background: var(--tint); color: var(--accent-deep); font-weight: 700; }
 
-.tariff-grid {
+.tariffs__controls {
   margin-top: var(--heading-gap);
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between;
   gap: var(--grid-gap);
-  align-items: stretch;
 }
-.tariff {
+.plan-switch { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tariff-table {
+  margin-top: var(--panel-pad);
   background: var(--paper);
   border-radius: var(--radius-xl);
-  padding: clamp(1.5rem, 3vw, 2rem);
-  display: flex; flex-direction: column;
-  transition: transform 0.25s ease;
+  padding-block: clamp(0.75rem, 2vw, 1.5rem);
+  overflow: clip;
 }
-.tariff--popular { box-shadow: 0 0 0 2px var(--accent); }
-.tariff[hidden] { display: none; }
+/* строка-тариф: название+описание | состав | цена | действие */
+.tariff-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.7fr) max-content max-content;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--rule);
+  transition: background-color 0.18s ease;
+}
+.tariff-row:last-of-type { border-bottom: 0; }
+.tariff-row[hidden] { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .tariff-row:hover { background: #f8f1e6; }
+}
 
-.tariff__badges { display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 24px; margin-bottom: 12px; }
 .badge {
   display: inline-flex; align-items: center;
   border-radius: 999px; padding: 0.42em 1em;
@@ -337,19 +350,16 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .badge--accent { background: var(--accent); color: var(--ink); }
 .badge--tint { background: var(--tint); color: var(--accent-deep); }
 
-.tariff__name { font-size: 1.375rem; font-weight: 800; letter-spacing: -0.015em; line-height: 1.15; }
-/* карты без бейджей: слот 24px + отступ 12px зарезервирован — названия на одной линии по всей сетке */
-.tariff__name--flush { padding-top: 36px; }
-.tariff__desc { margin-top: 0.5rem; color: var(--muted); font-size: 0.9375rem; }
-
-.tariff__features { margin-top: var(--panel-pad); display: grid; gap: 0.55rem; }
-.tariff__features li {
-  position: relative; padding-left: 1.6em;
-  font-weight: 500; font-size: 0.9375rem;
+.tariff-row__head { display: grid; gap: 0.4rem; align-content: start; }
+.tariff-row__name {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem);
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.15;
 }
-.tariff__features li::before {
-  content: "✓"; position: absolute; left: 0; top: 0;
-  font-weight: 800; color: var(--accent-deep);
+.tariff-row__desc { color: var(--muted); font-size: 0.9375rem; max-width: 40ch; }
+.tariff-row__features {
+  color: var(--muted); font-size: 0.9375rem; line-height: 1.65;
+  max-width: 60ch;
 }
 
 /* переключатель плана: пилюли-радио */
@@ -378,25 +388,21 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .plan-pill__input:checked + span em { opacity: 1; }
 .plan-pill__input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
 
-/* цена */
-/* деньги — нижний кластер: цена прижата к низу, у всех карт ряда на одной линии */
-.tariff__price {
-  margin-top: auto; padding-top: var(--panel-pad);
-  display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap;
-}
-.tariff__price-value {
-  font-size: var(--fs-price); font-weight: 800; letter-spacing: -0.02em;
+/* цена — правая колонка строки: сумма + серые условия под ней */
+.tariff-row__price { display: grid; gap: 0.3rem; justify-items: end; text-align: right; }
+.tariff-row__sum { display: inline-flex; align-items: baseline; gap: 0.3rem; }
+.tariff-row__value {
+  font-size: clamp(1.75rem, 1.35rem + 1.3vw, 2.5rem);
+  font-weight: 800; letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums; line-height: 1;
 }
-.tariff__price-currency { font-size: 1.25rem; font-weight: 700; }
-.tariff__price--custom {
-  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
-  font-weight: 800; letter-spacing: -0.015em; line-height: 1.15;
-  margin-bottom: var(--panel-pad);
+.tariff-row__currency { font-size: 1.0625rem; font-weight: 700; }
+.tariff-row__value--custom {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  letter-spacing: -0.01em; line-height: 1.2;
 }
-.tariff__unit { margin-top: 0.35rem; margin-bottom: var(--panel-pad); color: var(--muted); font-size: var(--fs-small); }
-/* кнопка замыкает кластер — зазор ей даёт unit / custom-цена */
-.tariff .btn { margin-top: 0; }
+.tariff-row__unit { color: var(--muted); font-size: var(--fs-small); }
+.tariff-row .btn { justify-self: end; align-self: center; }
 
 /* «Второе мнение»: широкая тёмная лента */
 .second-opinion {
@@ -537,13 +543,13 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .zones__grid .zone:nth-child(3) { --d: 120ms; }
 .zones__grid .zone:nth-child(4) { --d: 180ms; }
 .zones__grid .zone:nth-child(5) { --d: 240ms; }
-.tariff-grid .tariff:nth-child(2) { --d: 60ms; }
-.tariff-grid .tariff:nth-child(3) { --d: 120ms; }
-.tariff-grid .tariff:nth-child(4) { --d: 180ms; }
-.tariff-grid .tariff:nth-child(5) { --d: 240ms; }
-.tariff-grid .tariff:nth-child(6) { --d: 300ms; }
-.tariff-grid .tariff:nth-child(7) { --d: 360ms; }
-.tariff-grid .tariff:nth-child(8) { --d: 420ms; }
+.tariff-table .tariff-row:nth-child(2) { --d: 50ms; }
+.tariff-table .tariff-row:nth-child(3) { --d: 100ms; }
+.tariff-table .tariff-row:nth-child(4) { --d: 150ms; }
+.tariff-table .tariff-row:nth-child(5) { --d: 200ms; }
+.tariff-table .tariff-row:nth-child(6) { --d: 250ms; }
+.tariff-table .tariff-row:nth-child(7) { --d: 300ms; }
+.tariff-table .tariff-row:nth-child(8) { --d: 350ms; }
 .team__grid .person:nth-child(2) { --d: 70ms; }
 .team__grid .person:nth-child(3) { --d: 140ms; }
 .team__grid .person:nth-child(4) { --d: 210ms; }
@@ -558,7 +564,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 
 /* тактильные подъёмы карточек — только на устройствах с hover */
 @media (hover: hover) and (pointer: fine) {
-  .zone:hover, .tariff:hover, .person:hover { transform: translateY(-4px); }
+  .zone:hover, .person:hover { transform: translateY(-4px); }
 }
 
 /* ===== adaptive ===== */
@@ -611,6 +617,15 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .hero__inner h1 { max-width: 13ch; }
   .ticker__tag { display: none; }
 
+  /* строки тарифов складываются в столбик */
+  .tariff-row {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    align-items: start;
+  }
+  .tariff-row__price { justify-items: start; text-align: left; }
+  .tariff-row .btn { justify-self: start; }
+
   .second-opinion { grid-template-columns: 1fr; align-items: start; }
   .second-opinion .btn { justify-self: start; }
 }
@@ -621,7 +636,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .stats__grid .stat:first-child { padding-top: 0; }
   .stats__grid .stat:last-child { padding-bottom: 0; }
   .stats__grid .stat + .stat { border-left: 0; border-top: 1px solid var(--rule); }
-  .tariff-grid { grid-template-columns: 1fr; }
+  .tariff-row .btn { width: 100%; }
   .hero__actions .btn, .cta-actions .btn { width: 100%; }
   .footer__legal { flex-direction: column; gap: 0.75rem; }
 }
@@ -634,13 +649,13 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .btn, .chip, .filter-btn, .plan-pill span, .zone, .tariff, .person { transition: none; }
+  .btn, .chip, .filter-btn, .plan-pill span, .zone, .tariff-row, .person { transition: none; }
   .ticker__track { animation: none; }
   .ticker__viewport { overflow-x: auto; }
   .menu-sheet:not([hidden]) { animation: none; }
   .stage:not([hidden]) { animation: none; }
   .faq-card[open] > .faq-a { animation: none; }
   @media (hover: hover) and (pointer: fine) {
-    .zone:hover, .tariff:hover, .person:hover { transform: none; }
+    .zone:hover, .person:hover { transform: none; }
   }
 }

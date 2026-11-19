@@ -31,8 +31,6 @@ const getCardPrice = (tariffKey, plan) => {
   return planPrices ? planPrices[plan] : null;
 };
 
-const findTariffCard = (input) => input.closest('.tariff');
-
 /* ===== мобильное меню ===== */
 
 const initMenu = () => {
@@ -150,8 +148,8 @@ const initStages = () => {
 
 const initFilters = () => {
   const buttons = document.querySelectorAll('.filter-btn[data-brand]');
-  const cards = document.querySelectorAll('.tariff[data-brand]');
-  if (!buttons.length || !cards.length) return;
+  const rows = document.querySelectorAll('.tariff-row[data-brand]');
+  if (!buttons.length || !rows.length) return;
 
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -163,33 +161,33 @@ const initFilters = () => {
         other.setAttribute('aria-pressed', String(active));
       });
 
-      cards.forEach((card) => {
-        const visible = brand === 'all' || card.dataset.brand === brand;
-        card.hidden = !visible;
-        if (visible) card.classList.add('is-in');
+      rows.forEach((row) => {
+        const visible = brand === 'all' || row.dataset.brand === brand;
+        row.hidden = !visible;
+        if (visible) row.classList.add('is-in');
       });
     });
   });
 };
 
-/* ===== переключатель планов 8/12 проверок ===== */
+/* ===== глобальный переключатель планов 8/12 ===== */
 
-const updateCardPrice = (card, plan) => {
-  const price = getCardPrice(card.dataset.tariff, plan);
+const updateRowPrice = (row, plan) => {
+  const price = getCardPrice(row.dataset.tariff, plan);
   if (!price) return;
 
-  const value = card.querySelector('.tariff__price-value');
+  const value = row.querySelector('.tariff-row__value');
   if (value) value.textContent = formatNumber(price.current);
 };
 
 const initPlans = () => {
-  const inputs = document.querySelectorAll('.plan-pill__input');
-  if (!inputs.length) return;
+  const inputs = document.querySelectorAll('.plan-switch .plan-pill__input');
+  const planRows = document.querySelectorAll('.tariff-row[data-tariff]');
+  if (!inputs.length || !planRows.length) return;
 
   inputs.forEach((input) => {
     input.addEventListener('change', () => {
-      const card = findTariffCard(input);
-      if (card) updateCardPrice(card, input.value);
+      planRows.forEach((row) => updateRowPrice(row, input.value));
     });
   });
 };
