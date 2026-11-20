@@ -28,12 +28,13 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
 
-  /* семантический ритм — большие пространства */
-  --section-block: clamp(3rem, 9vh, 6rem);
-  --heading-gap: clamp(1.5rem, 4vh, 2.5rem);
+  /* семантический ритм: секции → заголовки → панели → карточки */
+  --section-block: clamp(2.25rem, 6.5vh, 4rem);
+  --heading-gap: clamp(1.25rem, 3.5vh, 2rem);
   --panel-pad: clamp(1.25rem, 3vw, 2rem);
   --panel-pad-x: clamp(1.25rem, 3.5vw, 2.5rem);
-  --panel-pad-lg: clamp(1.5rem, 4.5vw, 3rem);
+  --panel-pad-lg: clamp(1.75rem, 4.5vw, 3rem);
+  --card-pad: clamp(1.25rem, 2.75vw, 1.75rem);
   --grid-gap: clamp(1.25rem, 3vw, 1.5rem);
 
   --fs-small: 0.875rem;
@@ -201,7 +202,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 @keyframes ticker { to { transform: translateX(-50%); } }
 
 /* ===== stats: отдельные карточки с иконками в квадратиках ===== */
-.stats { padding-block: var(--section-block); }
 .stats__grid {
   margin-top: var(--heading-gap);
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -210,7 +210,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .stat-card {
   background: var(--paper);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: var(--card-pad);
   display: grid; gap: 0.4rem; justify-items: start; align-content: start;
 }
 .stat-card__icon {
@@ -237,7 +237,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   background: linear-gradient(150deg, #241e18 0%, #3f3225 70%, #5d4227 100%);
   border-radius: var(--radius-xl);
   color: var(--cream);
-  padding: clamp(2rem, 5.5vw, 4rem);
+  padding: var(--panel-pad-lg);
 }
 .path-panel :focus-visible { outline-color: var(--cream); }
 .path-panel .section-title { color: #fff; max-width: 20ch; }
@@ -262,7 +262,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   background: rgba(246, 242, 234, 0.07);
   border: 1px solid rgba(246, 242, 234, 0.14);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3vw, 2.25rem);
+  padding: var(--card-pad);
 }
 .stage[hidden] { display: none; }
 .stage:not([hidden]) { animation: stage-in 0.35s ease both; }
@@ -288,7 +288,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   grid-column: span 2;
   background: var(--paper);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: var(--card-pad);
   transition: transform 0.25s ease;
 }
 .zone--wide { grid-column: span 3; }
@@ -341,7 +341,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   grid-template-columns: subgrid;
   gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: start;
-  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+  padding-block: var(--card-pad);
   padding-inline: clamp(1rem, 3vw, 2rem);
   border-bottom: 1px solid var(--rule);
   transition: background-color 0.18s ease;
@@ -440,15 +440,14 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .second-opinion .btn { justify-self: end; }
 
 /* ===== case: кейс до/после — тёмная панель с динамикой рейтинга ===== */
-.case { padding-block: var(--section-block); }
 .case-panel {
   background: #241e18;
   border-radius: var(--radius-xl);
   color: var(--cream);
-  padding: clamp(2rem, 5.5vw, 4rem);
+  padding: var(--panel-pad-lg);
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  gap: var(--panel-pad-lg);
   align-items: end;
 }
 .case-panel .section-title { color: #fff; max-width: 18ch; }
@@ -500,12 +499,11 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 
 /* ===== calc: калькулятор бюджета ===== */
-.calc { padding-block: var(--section-block); }
 .calc-panel {
   margin-top: var(--heading-gap);
   background: var(--paper);
   border-radius: var(--radius-xl);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: var(--panel-pad-lg);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -535,13 +533,13 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .calc__result {
   background: var(--tint);
   border-radius: var(--radius-lg);
-  padding: clamp(1rem, 2.5vw, 1.75rem);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
   display: grid;
 }
 .calc-receipt {
   background: var(--paper);
   border-radius: var(--radius);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: var(--card-pad);
   display: grid; gap: 1.1rem;
   align-content: space-between;
   width: 100%;
@@ -572,7 +570,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .calc-receipt .btn { justify-self: stretch; text-align: center; }
 
 /* ===== compare: штатный контроль и критфактор ===== */
-.compare { padding-block: var(--section-block); }
 .compare__grid {
   margin-top: var(--heading-gap);
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -581,7 +578,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 .compare-col {
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--card-pad);
   display: grid; gap: 1rem; align-content: start;
 }
 .compare-col--inhouse { background: var(--surface); }
@@ -600,13 +597,12 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .compare-col--cf li::before { background: var(--accent); }
 
 /* ===== principles: тёмная панель с иконками ===== */
-.principles { padding-block: var(--section-block); }
 .principles-panel {
   background: #241e18;
   border-radius: var(--radius-xl);
   color: var(--cream);
-  padding: clamp(2rem, 5.5vw, 4rem);
-  display: grid; gap: clamp(2rem, 4vw, 3rem);
+  padding: var(--panel-pad-lg);
+  display: grid; gap: var(--heading-gap);
 }
 .principles-panel .section-title { color: #fff; }
 .principles-panel :focus-visible { outline-color: var(--cream); }
@@ -629,15 +625,14 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .principle__body p { color: rgba(246, 242, 234, 0.72); font-size: 0.9375rem; margin-top: 0.35rem; max-width: 46ch; }
 
 /* ===== about: акцентное поле — текст сверху, воркмарк-подвал снизу ===== */
-.about { padding-block: var(--section-block); }
 .about-band {
   background: var(--accent);
   border-radius: var(--radius-xl);
   color: var(--ink);
-  padding: clamp(2rem, 5.5vw, 4rem);
+  padding: var(--panel-pad-lg);
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 4rem);
+  gap: var(--panel-pad-lg);
   align-items: end;
 }
 .about__main { display: grid; gap: 1.25rem; justify-items: start; }
@@ -690,7 +685,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   margin-top: var(--grid-gap);
   background: var(--tint);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: var(--card-pad);
 }
 .team-note p { max-width: 72ch; color: var(--ink); }
 .team-note strong { font-weight: 800; }
@@ -730,7 +725,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   background: linear-gradient(118deg, #241e18 0%, #4a3927 62%, #93551f 100%);
   border-radius: var(--radius-xl);
   color: var(--cream);
-  padding: clamp(2.5rem, 7vh, 4.5rem) var(--panel-pad-lg);
+  padding: var(--panel-pad-lg);
 }
 .cta-panel :focus-visible { outline-color: var(--cream); }
 .cta-panel h2 {
