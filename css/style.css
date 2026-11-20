@@ -806,7 +806,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .menu-sheet:not([hidden]) { animation: sheet-in 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .menu-sheet a {
     display: flex; align-items: center; gap: 0.55em;
-    padding: 0.55rem 0.75rem;
+    padding: 0.75rem 0.85rem;
     text-decoration: none; font-weight: 600; color: var(--cream);
     border-radius: var(--radius);
     transition: background-color 0.18s ease, color 0.18s ease;
@@ -830,7 +830,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .tariff-table { display: block; }
   .tariff-row {
     grid-template-columns: 1fr;
-    gap: 0.55rem;
+    gap: 0.75rem;
     align-items: start;
   }
   .tariff-row__price { justify-items: start; text-align: left; }
@@ -841,9 +841,14 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 
 @media (max-width: 560px) {
+  :root { --margin: 1rem; }
+  .hero__inner h1 { font-size: 1.75rem; max-width: none; }
   .stats__grid, .zones__grid, .team__grid, .footer__grid { grid-template-columns: 1fr; }
   .about-band { grid-template-columns: 1fr; }
-  .principles__grid { grid-template-columns: 1fr; }  .tariff-row .btn { width: 100%; }
+  .principles__grid { grid-template-columns: 1fr; }
+  .tariff-row .btn { width: 100%; }
+  .about__side .btn { width: 100%; }
+  .calc__step { width: 2.75rem; height: 2.75rem; }
   .hero__actions .btn, .cta-actions .btn { width: 100%; }
   .footer__legal { flex-direction: column; gap: 0.75rem; }
 }
