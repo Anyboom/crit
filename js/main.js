@@ -197,6 +197,13 @@ const initPlans = () => {
 const CALC_POINTS_MIN = 1;
 const CALC_POINTS_MAX = 10;
 
+const CALC_FORMATS = {
+  'dodo-full': 'Додо — вся пиццерия',
+  'dodo-gc': 'Додо — камера ГЦ',
+  'drinkit-full': 'Дринкит — вся кофейня',
+  'drinkit-gc': 'Дринкит — камера бара'
+};
+
 const plural = (n, one, few, many) => {
   const mod10 = n % 10;
   const mod100 = n % 100;
@@ -220,6 +227,28 @@ const calcTotal = (tariff, plan, points) => {
   return price ? price.current * points : null;
 };
 
+/* итог пересчитывается плавным счётчиком от прежнего значения */
+const animateTotal = (element, target) => {
+  const from = Number(element.dataset.value) || 0;
+  element.dataset.value = String(target);
+  if (REDUCED_MOTION || from === target) {
+    element.textContent = formatNumber(target);
+    return;
+  }
+
+  const duration = 500;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    element.textContent = formatNumber(Math.round(from + (target - from) * eased));
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+};
+
 const updateCalc = (root) => {
   const points = getCalcPoints(root);
   const tariff = getCalcCheckedValue(root, 'calc-tariff');
@@ -227,12 +256,17 @@ const updateCalc = (root) => {
   const total = calcTotal(tariff, plan, points);
   if (!total) return;
 
+  const setText = (key, text) => {
+    const el = root.querySelector(`[data-calc="${key}"]`);
+    if (el) el.textContent = text;
+  };
+
+  setText('format', CALC_FORMATS[tariff] || tariff);
+  setText('points', `${formatNumber(points)} ${plural(points, 'точка', 'точки', 'точек')}`);
+  setText('checks', `${plan} проверок/мес на точку`);
+
   const totalEl = root.querySelector('.calc__total');
-  const detailEl = root.querySelector('.calc__detail');
-  if (totalEl) totalEl.textContent = formatNumber(total);
-  if (detailEl) {
-    detailEl.textContent = `${formatNumber(points)} ${plural(points, 'точка', 'точки', 'точек')} · ${plan} проверок/мес · постоплата`;
-  }
+  if (totalEl) animateTotal(totalEl, total);
 };
 
 const setCalcPoints = (root, points) => {

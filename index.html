@@ -383,10 +383,20 @@
         </div>
       </div>
       <div class="calc__result" aria-live="polite">
-        <p class="calc__price">от <span class="calc__total">45 000</span><span class="calc__period">₽/мес</span></p>
-        <p class="calc__detail">3 точки · 8 проверок/мес · постоплата</p>
-        <p class="calc__note">Точная цена — после тестовой проверки. Счёт по факту прошедшего месяца.</p>
-        <a class="btn" href="https://t.me/dima_critfaktor">Обсудить в Telegram</a>
+        <div class="calc-receipt">
+          <div>
+            <p class="calc-receipt__title">Предварительный счёт</p>
+            <p class="calc-receipt__meta">постоплата&nbsp;·&nbsp;счёт по факту месяца</p>
+          </div>
+          <dl class="calc-receipt__lines">
+            <div><dt>Формат</dt><dd data-calc="format">Додо — вся пиццерия</dd></div>
+            <div><dt>Точек в сети</dt><dd data-calc="points">3 точки</dd></div>
+            <div><dt>Проверок</dt><dd data-calc="checks">8 проверок/мес на точку</dd></div>
+          </dl>
+          <p class="calc-receipt__total">от&nbsp;<span class="calc__total" data-value="45000">45 000</span>&nbsp;<span class="calc-receipt__cur">₽/мес</span></p>
+          <p class="calc-receipt__note">Точная цена — после тестовой проверки.</p>
+          <a class="btn" href="https://t.me/dima_critfaktor">Обсудить в Telegram</a>
+        </div>
       </div>
     </div>
   </section>

@@ -535,21 +535,41 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .calc__result {
   background: var(--tint);
   border-radius: var(--radius-lg);
-  padding: clamp(1.5rem, 3vw, 2rem);
-  display: grid; gap: 0.6rem;
-  align-content: center; justify-items: start;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  display: grid;
 }
-.calc__price { display: flex; align-items: baseline; gap: 0.3em; font-weight: 800; }
+.calc-receipt {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: grid; gap: 1.1rem;
+  align-content: space-between;
+  width: 100%;
+}
+.calc-receipt__title { font-weight: 800; }
+.calc-receipt__meta { color: var(--muted); font-size: var(--fs-small); margin-top: 0.2rem; }
+.calc-receipt__lines { margin: 0; display: grid; gap: 0.55rem; }
+.calc-receipt__lines > div {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; font-size: 0.9375rem;
+}
+.calc-receipt__lines dt { color: var(--muted); }
+.calc-receipt__lines dd { margin: 0; font-weight: 600; text-align: right; }
+.calc-receipt__total {
+  display: flex; align-items: baseline; gap: 0.35em;
+  font-weight: 800;
+  border-top: 1px dashed var(--rule);
+  padding-top: 1rem;
+}
 .calc__total {
-  font-size: clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem);
+  font-size: clamp(2.25rem, 1.5rem + 2.5vw, 3.25rem);
   line-height: 1; letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
   color: var(--accent-deep);
 }
-.calc__period { font-size: 1.25rem; color: var(--accent-deep); }
-.calc__detail { color: var(--ink); font-weight: 600; }
-.calc__note { color: var(--muted); font-size: var(--fs-small); }
-.calc__result .btn { margin-top: 0.5rem; }
+.calc-receipt__cur { font-size: 1.25rem; color: var(--accent-deep); }
+.calc-receipt__note { color: var(--muted); font-size: var(--fs-small); }
+.calc-receipt .btn { justify-self: stretch; text-align: center; }
 
 /* ===== compare: штатный контроль и критфактор ===== */
 .compare { padding-block: var(--section-block); }
@@ -778,6 +798,9 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .case-panel { grid-template-columns: 1fr; }
   .case-chart { justify-self: stretch; height: clamp(200px, 45vw, 260px); }
   .calc-panel { grid-template-columns: 1fr; }
+  /* на телефоне счёт показываем сразу, под ним параметры */
+  .calc__controls { order: 2; }
+  .calc__result { order: 1; }
   .compare__grid { grid-template-columns: 1fr; }
 
   /* строки тарифов складываются в столбик */
