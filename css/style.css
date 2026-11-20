@@ -599,16 +599,34 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .compare-col--inhouse li::before { background: var(--muted); }
 .compare-col--cf li::before { background: var(--accent); }
 
-/* ===== principles: 2×2 текстовых колонки без карточек ===== */
+/* ===== principles: тёмная панель с иконками ===== */
 .principles { padding-block: var(--section-block); }
-.principles__grid {
-  margin-top: var(--heading-gap);
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem);
+.principles-panel {
+  background: #241e18;
+  border-radius: var(--radius-xl);
+  color: var(--cream);
+  padding: clamp(2rem, 5.5vw, 4rem);
+  display: grid; gap: clamp(2rem, 4vw, 3rem);
 }
-.principle { display: grid; gap: 0.5rem; align-content: start; }
-.principle h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; }
-.principle p { max-width: 46ch; }
+.principles-panel .section-title { color: #fff; }
+.principles-panel :focus-visible { outline-color: var(--cream); }
+.principles__grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3.5rem);
+}
+.principle {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 1rem; align-items: start;
+}
+.principle__icon {
+  display: grid; place-items: center;
+  width: 3rem; aspect-ratio: 1;
+  background: var(--tint); border-radius: var(--radius);
+  color: var(--accent-deep);
+}
+.principle__icon svg { width: 55%; height: 55%; }
+.principle__body h3 { color: #fff; font-size: 1.125rem; font-weight: 800; letter-spacing: -0.01em; }
+.principle__body p { color: rgba(246, 242, 234, 0.72); font-size: 0.9375rem; margin-top: 0.35rem; max-width: 46ch; }
 
 /* ===== team ===== */
 .team__grid {
