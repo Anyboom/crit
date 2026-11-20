@@ -85,10 +85,10 @@ h1 { font-size: var(--fs-h1); letter-spacing: -0.03em; line-height: 1.04; }
 section { scroll-margin-top: 2rem; }
 main > section:not(.hero) { padding-block: var(--section-block); }
 
-/* кнопки: оранжевые пилюли с чернильным текстом */
+/* кнопки: оранжевые пилюли с белым текстом */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.55em;
-  background: var(--accent); color: var(--ink);
+  background: var(--accent); color: #fff;
   font-weight: 700; font-size: 1rem; line-height: 1;
   padding: 1.1em 1.75em; border: 0; border-radius: 999px;
   text-decoration: none; cursor: pointer;
@@ -254,7 +254,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   transition: background 0.18s ease;
 }
 .chip:hover { background: rgba(246, 242, 234, 0.2); }
-.chip.is-active { background: var(--accent); color: var(--ink); font-weight: 700; }
+.chip.is-active { background: var(--accent); color: #fff; font-weight: 700; }
 
 /* карточка активного этапа */
 .stages { margin-top: var(--panel-pad); }
@@ -358,7 +358,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   font-size: 0.8125rem; font-weight: 700; line-height: 1;
   white-space: nowrap;
 }
-.badge--accent { background: var(--accent); color: var(--ink); }
+.badge--accent { background: var(--accent); color: #fff; }
 .badge--tint { background: var(--tint); color: var(--accent-deep); }
 
 .tariff-row__head { display: grid; gap: 0.4rem; align-content: start; }
@@ -394,7 +394,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .plan-pill:hover span { background: var(--tint); color: var(--ink); }
 .plan-pill__input:checked + span {
   background: var(--accent); border-color: var(--accent);
-  color: var(--ink); font-weight: 700;
+  color: #fff; font-weight: 700;
 }
 .plan-pill__input:checked + span em { opacity: 1; }
 .plan-pill__input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
@@ -521,7 +521,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   cursor: pointer;
   transition: background-color 0.18s ease;
 }
-.calc__step:hover { background: var(--accent); color: var(--ink); }
+.calc__step:hover { background: var(--accent); color: #fff; }
 .calc__step:disabled { opacity: 0.4; cursor: default; }
 .calc__step:disabled:hover { background: var(--tint); color: var(--accent-deep); }
 .calc__points-value {
@@ -658,7 +658,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 .about__mark span { color: var(--ink); }
 .about__side { display: grid; gap: 0.9rem; justify-items: start; }
 .about__tagline { color: rgba(34, 40, 49, 0.8); font-size: 0.9375rem; line-height: 1.55; max-width: 30ch; margin: 0; }
-.about-band .btn { background: var(--ink); color: var(--cream); }
+.about-band .btn { background: var(--ink); }
 .about-band .btn:hover { background: var(--ink-deep); }
 
 /* ===== team ===== */
