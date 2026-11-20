@@ -200,30 +200,36 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 @keyframes ticker { to { transform: translateX(-50%); } }
 
-/* ===== stats: широкая панель-полоса с делителями ===== */
+/* ===== stats: отдельные карточки с иконками в квадратиках ===== */
 .stats { padding-block: var(--section-block); }
-.stats-panel {
+.stats__grid {
   margin-top: var(--heading-gap);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+.stat-card {
   background: var(--paper);
-  border-radius: var(--radius-xl);
-  padding: clamp(1.75rem, 4.5vw, 3rem) clamp(1.25rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: grid; gap: 0.4rem; justify-items: start; align-content: start;
 }
-.stats__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.stat {
-  padding-inline: clamp(0.75rem, 1.8vw, 1.5rem);
-  display: grid; gap: 0.45rem; justify-items: start; align-content: start;
+.stat-card__icon {
+  display: grid; place-items: center;
+  width: clamp(2.75rem, 3.5vw, 3.25rem); aspect-ratio: 1;
+  background: var(--tint); border-radius: var(--radius);
+  color: var(--accent-deep);
+  margin-bottom: 0.9rem;
 }
-.stat:first-child { padding-left: 0; }
-.stat:last-child { padding-right: 0; }
-.stat + .stat { border-left: 1px solid var(--rule); }
-.stat__num {
-  font-weight: 800; line-height: 0.95; letter-spacing: -0.03em;
+.stat-card__icon svg { width: 55%; height: 55%; }
+.stat-card__num {
+  font-weight: 800; line-height: 1; letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums; white-space: nowrap;
   color: var(--ink);
-  font-size: clamp(2.5rem, 1rem + 3vw, 3.5rem);
+  font-size: clamp(2.5rem, 1.2rem + 2.8vw, 3.75rem);
 }
-.stat__title { font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; margin-top: 0.5rem; }
-.stat__note { color: var(--muted); font-size: 0.9375rem; }
+.stat-card--lead .stat-card__num { color: var(--accent-deep); }
+.stat-card__title { font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; }
+.stat-card__note { color: var(--muted); font-size: 0.9375rem; }
 
 /* ===== how: тёмная панель-эхо героя с этапами ===== */
 .path-panel {
@@ -323,11 +329,16 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   border-radius: var(--radius-xl);
   padding-block: clamp(0.75rem, 2vw, 1.5rem);
   overflow: clip;
-}
-/* строка-тариф: название+описание | состав | цена | действие */
-.tariff-row {
+  /* общий шаблон колонок для всех строк: название+описание | состав | цена | действие */
   display: grid;
   grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.7fr) max-content max-content;
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+/* строка-тариф наследует колонки таблицы через subgrid — колонки ровные по всей таблице */
+.tariff-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
   gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: start;
   padding-block: clamp(1.25rem, 3vw, 1.75rem);
@@ -398,7 +409,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 .tariff-row__currency { font-size: 1.0625rem; font-weight: 700; }
 .tariff-row__value--custom {
-  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  font-size: clamp(1rem, 0.9rem + 0.45vw, 1.25rem);
   letter-spacing: -0.01em; line-height: 1.2;
 }
 .tariff-row__unit { color: var(--muted); font-size: var(--fs-small); }
@@ -569,12 +580,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 
 /* ===== adaptive ===== */
 @media (max-width: 1100px) {
-  .stats__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: var(--grid-gap);
-  }
-  .stats__grid .stat:nth-child(odd) { border-left: 0; padding-left: 0; }
-  .stats__grid .stat:nth-child(even) { border-left: 1px solid var(--rule); }
+  .stats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .zones__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .zone, .zone--wide { grid-column: auto; }
   .team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -618,6 +624,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   .ticker__tag { display: none; }
 
   /* строки тарифов складываются в столбик */
+  .tariff-table { display: block; }
   .tariff-row {
     grid-template-columns: 1fr;
     gap: 0.55rem;
@@ -631,12 +638,7 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 }
 
 @media (max-width: 560px) {
-  .stats__grid, .zones__grid, .team__grid, .footer__grid { grid-template-columns: 1fr; }
-  .stats__grid .stat { padding-block: 1.25rem; }
-  .stats__grid .stat:first-child { padding-top: 0; }
-  .stats__grid .stat:last-child { padding-bottom: 0; }
-  .stats__grid .stat + .stat { border-left: 0; border-top: 1px solid var(--rule); }
-  .tariff-row .btn { width: 100%; }
+  .stats__grid, .zones__grid, .team__grid, .footer__grid { grid-template-columns: 1fr; }  .tariff-row .btn { width: 100%; }
   .hero__actions .btn, .cta-actions .btn { width: 100%; }
   .footer__legal { flex-direction: column; gap: 0.75rem; }
 }
