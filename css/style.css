@@ -174,33 +174,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   display: flex; align-items: center; gap: var(--grid-gap); flex-wrap: wrap;
 }
 
-/* бегущая лента по нижней кромке героя */
-.hero__ticker {
-  border-top: 1px solid rgba(246, 242, 234, 0.14);
-  background: rgba(22, 17, 12, 0.38);
-}
-.ticker__wrap { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); padding-block: 0.9rem; }
-.ticker__tag { flex: none; font-size: 0.8125rem; font-weight: 700; color: rgba(246, 242, 234, 0.72); white-space: nowrap; }
-.ticker__viewport {
-  flex: 1; min-width: 0; overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-}
-.ticker__track { display: flex; width: max-content; animation: ticker 38s linear infinite; }
-.hero__ticker:hover .ticker__track { animation-play-state: paused; }
-.ticker__group { display: flex; align-items: center; }
-.ticker__item {
-  display: inline-flex; align-items: baseline; white-space: nowrap;
-  font-size: 0.9375rem; font-weight: 600; color: rgba(246, 242, 234, 0.8);
-}
-.ticker__item::after {
-  content: ""; flex: none; align-self: center;
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--accent);
-  margin-inline: 1.6em;
-}
-@keyframes ticker { to { transform: translateX(-50%); } }
-
 /* ===== stats: отдельные карточки с иконками в квадратиках ===== */
 .stats__grid {
   margin-top: var(--heading-gap);
@@ -843,7 +816,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
 
   .hero__inner { padding-top: clamp(6.5rem, 18vh, 9rem); }
   .hero__inner h1 { max-width: 13ch; }
-  .ticker__tag { display: none; }
 
   /* новые блоки складываются в один столбик */
   .case-panel { grid-template-columns: 1fr; }
@@ -885,8 +857,6 @@ main > section:not(.hero) { padding-block: var(--section-block); }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .chip, .filter-btn, .plan-pill span, .zone, .tariff-row, .person { transition: none; }
-  .ticker__track { animation: none; }
-  .ticker__viewport { overflow-x: auto; }
   .menu-sheet:not([hidden]) { animation: none; }
   .stage:not([hidden]) { animation: none; }
   .faq-card[open] > .faq-a { animation: none; }
