@@ -62,6 +62,7 @@
         <a href="#how">Подход</a>
         <a href="#zones">Что проверяем</a>
         <a href="#tariffs">Тарифы</a>
+        <a href="#calc">Калькулятор</a>
         <a href="#team">Команда</a>
         <a href="#faq">FAQ</a>
         <a href="https://t.me/dima_critfaktor">
@@ -177,6 +178,27 @@
           <p>Ежемесячно ставим цели управляющим пиццерий и помогаем их достигать, улучшая результаты.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- Кейс: до и после — ОБРАЗЕЦ, замените цифры на реальные -->
+  <section class="case container" id="case" aria-labelledby="case-title">
+    <div class="case-panel reveal">
+      <div class="case__main">
+        <h2 class="section-title" id="case-title">С 74 до&nbsp;96 по&nbsp;рейтингу стандартов</h2>
+        <p class="case__desc">Сеть из трёх пиццерий: за два месяца регулярного контроля — по всем камерам, 8 проверок на точку, цели на ежемесячных встречах с управляющими.</p>
+      </div>
+      <p class="case__delta">
+        <span class="case__before">74</span>
+        <span class="case__arrow" aria-hidden="true">→</span>
+        <span class="case__after">96</span>
+      </p>
+      <ul class="case__facts">
+        <li><span>−60%</span><p>повторных нарушений к третьему месяцу</p></li>
+        <li><span>3</span><p>точки переведены на регулярный контроль</p></li>
+        <li><span>24</span><p>проверки суммарно за первые два месяца</p></li>
+      </ul>
     </div>
   </section>
 
@@ -321,6 +343,95 @@
     </aside>
   </section>
 
+  <!-- Калькулятор стоимости -->
+  <section class="calc container" id="calc" aria-labelledby="calc-title">
+    <h2 class="section-title" id="calc-title">Прикиньте бюджет за&nbsp;десять секунд</h2>
+    <div class="calc-panel reveal" data-points="3">
+      <div class="calc__controls">
+        <div class="calc__group">
+          <span class="calc__label" id="calc-format-label">Формат</span>
+          <div class="calc__pills" role="radiogroup" aria-labelledby="calc-format-label">
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-tariff" value="dodo-full" checked><span>Додо — вся пиццерия</span></label>
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-tariff" value="dodo-gc"><span>Додо — камера ГЦ</span></label>
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-tariff" value="drinkit-full"><span>Дринкит — вся кофейня</span></label>
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-tariff" value="drinkit-gc"><span>Дринкит — камера бара</span></label>
+          </div>
+        </div>
+        <div class="calc__group">
+          <span class="calc__label" id="calc-points-label">Точек в сети</span>
+          <div class="calc__stepper" role="group" aria-labelledby="calc-points-label">
+            <button class="calc__step calc__step--minus" type="button" aria-label="Меньше точек">−</button>
+            <span class="calc__points-value">3</span>
+            <button class="calc__step calc__step--plus" type="button" aria-label="Больше точек">+</button>
+            <span class="calc__points-word">объектов на контроле</span>
+          </div>
+        </div>
+        <div class="calc__group">
+          <span class="calc__label" id="calc-plan-label">Проверок на точку</span>
+          <div class="calc__pills" role="radiogroup" aria-labelledby="calc-plan-label">
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-plan" value="8" checked><span>8 проверок / мес</span></label>
+            <label class="plan-pill"><input class="plan-pill__input" type="radio" name="calc-plan" value="12"><span>12 проверок / мес <em>−10%</em></span></label>
+          </div>
+        </div>
+      </div>
+      <div class="calc__result" aria-live="polite">
+        <p class="calc__price">от <span class="calc__total">45 000</span><span class="calc__period">₽/мес</span></p>
+        <p class="calc__detail">3 точки · 8 проверок/мес · постоплата</p>
+        <p class="calc__note">Точная цена — после тестовой проверки. Счёт по факту прошедшего месяца.</p>
+        <a class="btn" href="https://t.me/dima_critfaktor">Обсудить в Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сравнение: штатный контроль и критфактор -->
+  <section class="compare container" id="compare" aria-labelledby="compare-title">
+    <h2 class="section-title" id="compare-title">Штатный контроль и&nbsp;мы — в&nbsp;чём разница</h2>
+    <p class="section-lead">Мы не заменяем менеджера по качеству, а добавляем собственнику независимый слой данных по всем точкам сразу.</p>
+    <div class="compare__grid">
+      <div class="compare-col compare-col--inhouse reveal">
+        <h3 class="compare-col__name">Штатный контроль</h3>
+        <ul>
+          <li>Видит свою точку и свою смену</li>
+          <li>Отчёт уходит руководству, а не собственнику</li>
+          <li>Привыкает к нарушениям: «так всегда работали»</li>
+          <li>В часы пик контроль по остаточному принципу</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-col--cf reveal">
+        <h3 class="compare-col__name">критфактор</h3>
+        <ul>
+          <li>Все камеры всех точек — каждый день</li>
+          <li>Эксперт не знаком с командой точки: оценки объективны</li>
+          <li>Ротация экспертов — взгляд не замыливается</li>
+          <li>Отчёт собственнику: тайм-коды, видео, динамика</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Принципы -->
+  <section class="principles container" id="principles" aria-labelledby="principles-title">
+    <h2 class="section-title" id="principles-title">На чём стоит наша работа</h2>
+    <div class="principles__grid">
+      <div class="principle reveal">
+        <h3>Независимость</h3>
+        <p>Не работаем «на УК» и не сглаживаем углы — что увидели, то и написали. Любую оценку можно проверить по тайм-кодам.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Конфиденциальность</h3>
+        <p>Доступы к камерам и результаты проверок остаются внутри контура партнёра. Не публикуем и не передаём третьим лицам.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Постоплата</h3>
+        <p>Счёт по факту прошедшего месяца за проведённые проверки. Без предоплат и длинных пакетных обязательств.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Опыт 10+ лет</h3>
+        <p>Эксперты, которые сами годами работали в операционных процессах Додо и знают стандарты изнутри.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Команда -->
   <section class="team container" id="team" aria-labelledby="team-title">
     <h2 class="section-title" id="team-title">Люди, которые видят всё</h2>
@@ -419,6 +530,7 @@
       <a href="#how">Подход</a>
       <a href="#zones">Что проверяем</a>
       <a href="#tariffs">Тарифы</a>
+      <a href="#calc">Калькулятор</a>
       <a href="#team">Команда</a>
       <a href="#faq">FAQ</a>
     </nav>

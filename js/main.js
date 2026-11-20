@@ -192,10 +192,81 @@ const initPlans = () => {
   });
 };
 
+/* ===== калькулятор стоимости сети ===== */
+
+const CALC_POINTS_MIN = 1;
+const CALC_POINTS_MAX = 10;
+
+const plural = (n, one, few, many) => {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few;
+  return many;
+};
+
+const getCalcPoints = (root) => Math.min(
+  CALC_POINTS_MAX,
+  Math.max(CALC_POINTS_MIN, Number(root.dataset.points) || 1)
+);
+
+const getCalcCheckedValue = (root, name) => {
+  const input = root.querySelector(`input[name="${name}"]:checked`);
+  return input ? input.value : null;
+};
+
+const calcTotal = (tariff, plan, points) => {
+  const price = getCardPrice(tariff, plan);
+  return price ? price.current * points : null;
+};
+
+const updateCalc = (root) => {
+  const points = getCalcPoints(root);
+  const tariff = getCalcCheckedValue(root, 'calc-tariff');
+  const plan = getCalcCheckedValue(root, 'calc-plan');
+  const total = calcTotal(tariff, plan, points);
+  if (!total) return;
+
+  const totalEl = root.querySelector('.calc__total');
+  const detailEl = root.querySelector('.calc__detail');
+  if (totalEl) totalEl.textContent = formatNumber(total);
+  if (detailEl) {
+    detailEl.textContent = `${formatNumber(points)} ${plural(points, 'точка', 'точки', 'точек')} · ${plan} проверок/мес · постоплата`;
+  }
+};
+
+const setCalcPoints = (root, points) => {
+  const next = Math.min(CALC_POINTS_MAX, Math.max(CALC_POINTS_MIN, points));
+  if (next === getCalcPoints(root)) {
+    updateCalc(root);
+    return;
+  }
+  root.dataset.points = String(next);
+  const valueEl = root.querySelector('.calc__points-value');
+  if (valueEl) valueEl.textContent = String(next);
+  updateCalc(root);
+};
+
+const initCalc = () => {
+  const root = document.querySelector('.calc-panel');
+  if (!root) return;
+
+  root.addEventListener('change', (event) => {
+    if (event.target.matches('input[type="radio"]')) updateCalc(root);
+  });
+
+  const minus = root.querySelector('.calc__step--minus');
+  const plus = root.querySelector('.calc__step--plus');
+  if (minus) minus.addEventListener('click', () => setCalcPoints(root, getCalcPoints(root) - 1));
+  if (plus) plus.addEventListener('click', () => setCalcPoints(root, getCalcPoints(root) + 1));
+
+  updateCalc(root);
+};
+
 /* ===== запуск ===== */
 
 const init = () => {
-  [initMenu, initReveals, initCounters, initStages, initFilters, initPlans]
+  [initMenu, initReveals, initCounters, initStages, initFilters, initPlans, initCalc]
     .forEach((feature) => feature());
 };
 
